@@ -1,14 +1,18 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <Layout>
+      <nav>
+      <router-link to="/">Info List</router-link> |
+      <router-link to="/add">Add Info</router-link>
+      </nav>
+      <router-view/>
+    </Layout>
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@import "@/assets/scss/_index.scss";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,3 +34,15 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script lang="ts">
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+import Layout from "@/layouts/PageWrapper.vue";
+
+@Component({
+  components: { Layout }
+})
+export default class App extends Vue {
+}
+</script>
