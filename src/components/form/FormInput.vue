@@ -35,16 +35,6 @@ export default class FormInput extends Vue {
     return eventTarget.value
   }
 
-  // @PropSync('isShow', { type: Boolean }) checkShow!: boolean
-
-  // hidden(): string | null {
-  //   return this.value.text.length > 0 ? "hidden" : null;
-  // }
-  // show(): string | null {
-  //   return this.value.text.length > 0 ? null : "hidden";
-  // }
-  //
-
   get hidden() {
     return this.inputValue.value.length > 0 ? "hidden" : null;
   }
