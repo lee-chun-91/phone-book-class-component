@@ -11,11 +11,15 @@
 
 // 3. 컴포넌트별 스타일
 ///////////////////////////////////////////////
+@import "components/form/FormInput.scss";
+@import "components/form/FormWrapper.scss";
 
-
-// 2. 페이지 스타일
+// 2. 뷰 스타일
 // 화면 중 특별히 해당 페이지에만 적용되어야 할 경우 스타일 정의
 ///////////////////////////////////////////////
+@import "views/AddInfoView.scss";
+@import "views/InfoListView.scss";
+@import "views/UpdateInfoView.scss";
 
 
 // 1. 레이아웃 스타일

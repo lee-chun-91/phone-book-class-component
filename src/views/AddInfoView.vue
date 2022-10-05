@@ -1,13 +1,16 @@
 <template>
   <div class="AddInfo">
-    <h1>This is an Add Info Page</h1>
+    <h1>ADD INFO</h1>
+    <FormWrapper></FormWrapper>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-
-@Component
+import FormWrapper from "@/components/form/FormWrapper.vue";
+@Component({
+  components: {FormWrapper}
+})
 export default class AddInfoView extends Vue {
 
 }
