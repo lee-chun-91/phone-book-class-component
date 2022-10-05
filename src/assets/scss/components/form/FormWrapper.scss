@@ -1,13 +1,12 @@
 .formWrapper {
-  background: white;
-}
-
-form {
   padding: 30px;
 }
 
-.formWrapper > form > button {
+form > button {
   background: $primary;
   color: white;
-  width: 33%
+  width: 33.3%;
+  height: 30px;
+  border: none;
+  border-radius: 3px;
 }
