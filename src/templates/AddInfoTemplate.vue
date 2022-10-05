@@ -1,9 +1,8 @@
 <template>
-  <div class="UpdateInfo">
-    <div>UPDATE INFO</div>
+  <div class="AddInfoTemplate">
+    <h1>ADD INFO</h1>
     <FormWrapper></FormWrapper>
   </div>
-
 </template>
 
 <script lang="ts">
@@ -12,12 +11,11 @@ import FormWrapper from "@/components/form/FormWrapper.vue";
 @Component({
   components: {FormWrapper}
 })
-export default class UpdateInfo extends Vue {
+export default class AddInfoTemplate extends Vue {
 
 }
-
 </script>
 
-<style scoped>
-
+<style lang="scss">
+@import "@/assets/scss/views/AddInfoView.scss";
 </style>
