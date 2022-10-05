@@ -66,11 +66,10 @@ export default class InfoForm extends Vue {
     this.updateEmail("");
     this.updatePhoneNumber("");
     this.$store.commit('addItem', data);
-    // this.$store.commit(MutationTypes.ADD_ITEM, data);
-    this.$message({
-      message: "전화번호가 등록되었습니다.",
-      type: "success",
-    });
+    // this.$message({
+    //   message: "전화번호가 등록되었습니다.",
+    //   type: "success",
+    // });
   }
 
 }
