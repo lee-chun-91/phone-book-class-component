@@ -1,19 +1,18 @@
 <template>
   <div class="InfoListTemplate">
-    <h1>This is an Info List Page</h1>
     <SearchBar :search-word="searchWord" @search-input="searchItem" @sort-by-name-click="sortByName" @delete-all-click="deleteAllItem"></SearchBar>
-    <InfoListTable :info-list="infoList"></InfoListTable>
+    <TableArea :info-list="infoList"></TableArea>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import SearchBar from "@/components/infoList/SearchBar.vue";
-import InfoListTable from "@/components/infoList/InfoListTable.vue";
 import {InfoItem} from "@/store";
+import SearchBar from "@/components/infoList/SearchBar.vue";
+import TableArea from "@/components/infoList/TableArea.vue";
 
 @Component({
-  components: {SearchBar, InfoListTable}
+  components: {TableArea, SearchBar}
 })
 export default class InfoListTemplate extends Vue {
   infoList = [] as InfoItem[]
@@ -34,7 +33,6 @@ export default class InfoListTemplate extends Vue {
   }
 
   sortByName() {
-    // console.log("sortByName");
     this.infoList = this.$store.state.infoList.sort((a: InfoItem, b: InfoItem) => {
       if(a.name > b.name) {
         return 1

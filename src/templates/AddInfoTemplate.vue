@@ -1,6 +1,5 @@
 <template>
   <div class="AddInfoTemplate">
-    <h1>ADD INFO</h1>
     <FormWrapper></FormWrapper>
   </div>
 </template>
@@ -17,5 +16,4 @@ export default class AddInfoTemplate extends Vue {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/views/AddInfoView.scss";
 </style>

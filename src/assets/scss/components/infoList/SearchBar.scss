@@ -1,0 +1,25 @@
+
+.SearchBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.SearchBar > div > * {
+  height: 30px;
+}
+
+.input-area {
+  input {
+    width: 200px;
+  }
+}
+
+.button-area {
+  button {
+    margin-left: 20px;
+    color: white;
+    background-color: $primary;
+    border: none;
+    border-radius: 3px;
+  }
+}

@@ -1,5 +1,6 @@
 <template>
   <div class="InfoList">
+    <h1>INFO LIST</h1>
     <InfoListTemplate></InfoListTemplate>
   </div>
 </template>

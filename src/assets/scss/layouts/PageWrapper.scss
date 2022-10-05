@@ -4,3 +4,29 @@
   height: 100vh;
   word-break: keep-all;
 }
+
+.PageWrapper > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.PageWrapper > div > h1 {
+  color: $primary;
+
+  width: 60%;
+  padding: 30px;
+}
+
+.PageWrapper > div > div {
+  background: white;
+
+  width: 60%;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 1px 14px 0 rgb(0 0 0 / 20%);
+}
+
+
