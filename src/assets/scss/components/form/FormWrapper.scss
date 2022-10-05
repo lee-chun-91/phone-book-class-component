@@ -1,0 +1,14 @@
+.formWrapper {
+  width: 50%;
+  background: white;
+}
+
+form {
+  padding: 30px;
+}
+
+.formWrapper > form > button {
+  background: $primary;
+  color: white;
+  width: 33%
+}

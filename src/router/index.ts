@@ -21,7 +21,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/update/:id',
     name: 'updateInfo',
-    component: () => import('../views/UpdateInfo.vue')
+    component: () => import('../views/UpdateInfoView.vue')
   }
 ]
 
