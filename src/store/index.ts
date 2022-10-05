@@ -26,9 +26,9 @@ export default new Vuex.Store({
       const foundIndex = state.infoList.findIndex((i) => i.id === payload.id);
       state.infoList[foundIndex] = payload;
     },
-    deleteItem (state, deleteItemIndex) {
+    deleteItem (state, deleteItemId) {
       state.infoList = state.infoList.filter(
-          (item, index) => index !== deleteItemIndex
+          (item) => item.id !== deleteItemId
       )
     },
     deleteAll (state) {

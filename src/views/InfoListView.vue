@@ -1,14 +1,16 @@
 <template>
   <div class="InfoList">
-    <h1>This is an Info List Page</h1>
+    <InfoListTemplate></InfoListTemplate>
   </div>
 </template>
 
 <script lang="ts">
-  import { Vue, Component, Prop } from "vue-property-decorator";
-
-  @Component
-  export default class ItemListView extends Vue {}
+  import { Vue, Component } from "vue-property-decorator";
+  import InfoListTemplate from "@/templates/InfoListTemplate.vue";
+  @Component({
+    components: {InfoListTemplate}
+  })
+  export default class InfoListView extends Vue {}
 </script>
 
 <style scoped>
