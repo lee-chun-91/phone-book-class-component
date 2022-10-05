@@ -8,7 +8,7 @@
 import { Vue, Component } from "vue-property-decorator"
 
 @Component
-export default class Layout extends Vue {}
+export default class PageWrapper extends Vue {}
 </script>
 
 <style lang="scss">

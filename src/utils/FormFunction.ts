@@ -67,6 +67,27 @@ const convertDate = (date: Date) => {
     return YY + "년 " + MM + "월 " + DD + "일 " + hh + "시 " + mm + "분 ";
 };
 
+// const onSubmitAddInfo = (event: HTMLFormElement) => {
+//     event.preventDefault();
+//
+//     let date = new Date();
+//     let data = {
+//         name: this.name.value,
+//         email: this.email.value,
+//         phoneNumber: this.phoneNumber.value,
+//         date: convertDate(date),
+//         id: Date.now(),
+//     };
+//     this.updateName("");
+//     this.updateEmail("");
+//     this.updatePhoneNumber("");
+//     this.$store.commit('addItem', data);
+//     // this.$message({
+//     //   message: "전화번호가 등록되었습니다.",
+//     //   type: "success",
+//     // });
+// }
+
 export {
     validateName,
     validateEmail,

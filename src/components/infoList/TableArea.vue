@@ -1,9 +1,9 @@
 <template>
-  <div class="InfoListTable">
-      <div v-show="infoList.length === 0">No Result</div>
-      <div v-show="infoList.length > 0">
+  <div class="TableArea">
+      <div class="Table" v-show="infoList.length === 0">No Result</div>
+      <div class="Table" v-show="infoList.length > 0">
         <table>
-          <thead style="height: 50px">
+          <thead>
           <tr>
             <th>이름</th>
             <th>이메일</th>
@@ -19,9 +19,6 @@
               v-for="(info, index) in infoList"
               :class="coloredRow(index)"
           >
-            <!--              <td :key="index" v-for="(name, item, index) in info">-->
-            <!--                {{ name }}-->
-            <!--              </td>-->
             <td>{{ info.name }}</td>
             <td>{{ info.email }}</td>
             <td>{{ info.phoneNumber }}</td>

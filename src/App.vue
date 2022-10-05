@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <Layout>
+    <PageWrapper>
       <nav>
       <router-link to="/">Info List</router-link> |
       <router-link to="/add">Add Info</router-link>
       </nav>
       <router-view/>
-    </Layout>
+    </PageWrapper>
   </div>
 </template>
 
@@ -38,10 +38,10 @@ nav a.router-link-exact-active {
 <script lang="ts">
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
-import Layout from "@/layouts/PageWrapper.vue";
+import PageWrapper from "@/layouts/PageWrapper.vue";
 
 @Component({
-  components: { Layout }
+  components: { PageWrapper }
 })
 export default class App extends Vue {
 }
