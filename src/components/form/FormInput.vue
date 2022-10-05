@@ -1,11 +1,11 @@
 <template>
-  <div class="formInput">
+  <div class="FormInput">
     <label :for="title">{{ title }}</label>
     <input type="text" :id="title" :placeholder="placeholder" :value="inputValue.value" @input="handleInput">
     <!-- 이벤트를 설정할 때 주의하자! -->
-    <p :class="hidden">{{ title }}을 입력해주세요</p>
-    <p :class="show" v-if="inputValue.isValid">검사 통과</p>
-    <p :class="show" v-else>검사 통과X</p>
+    <div :class="hidden">{{ title }}을 입력해주세요</div>
+    <div :class="show" v-if="inputValue.isValid">검사 통과</div>
+    <div :class="show" v-else>검사 통과X</div>
   </div>
 </template>
 
