@@ -2,8 +2,8 @@
   <div id="app">
     <PageWrapper>
       <nav>
-      <router-link to="/">Info List</router-link> |
-      <router-link to="/add">Add Info</router-link>
+      <router-link to="/">INFO LIST</router-link> |
+      <router-link to="/add">ADD INFO</router-link>
       </nav>
       <router-view/>
     </PageWrapper>

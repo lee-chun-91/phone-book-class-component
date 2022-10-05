@@ -1,19 +1,20 @@
 <template>
   <div class="formWrapper">
-    <form @submit="onSubmitAddInfo">
+    <form @submit="submitInfo">
       <FormInput title="이름" :inputValue="name"
                  placeholder="영어,공백 포함 20자 이하" @handle-input="updateName"></FormInput>
       <FormInput title="이메일" :inputValue="email" placeholder="40자 이하" @handle-input="updateEmail"></FormInput>
       <FormInput title="전화번호" :inputValue="phoneNumber" placeholder="숫자만 입력" @handle-input="updatePhoneNumber"></FormInput>
-      <button>저장하기</button>
+      <button>{{ buttonText }}</button>
     </form>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component, Prop, Emit } from "vue-property-decorator";
 import FormInput from "@/components/form/FormInput.vue";
 import { validateName, validateEmail, validatePhoneNumber, convertPhoneNumber, convertDate} from "@/utils/FormFunction";
+import {InfoItem} from "@/store";
 
 
 
@@ -21,7 +22,10 @@ import { validateName, validateEmail, validatePhoneNumber, convertPhoneNumber, c
   components: { FormInput }
 })
 
-export default class InfoForm extends Vue {
+export default class FormWrapper extends Vue {
+  @Prop({type: Object}) updateItem!: InfoItem
+  @Prop(String) buttonText!: string
+
   name= {
     value: "",
     isValid: false,
@@ -51,29 +55,55 @@ export default class InfoForm extends Vue {
     this.phoneNumber.value = convertPhoneNumber(value);
   }
 
-  onSubmitAddInfo(event: HTMLFormElement) {
+  @Emit()
+  submitInfo(event: HTMLFormElement) {
     event.preventDefault();
+    // updateItem 인 경우
 
-    let date = new Date();
-    let data = {
-      name: this.name.value,
-      email: this.email.value,
-      phoneNumber: this.phoneNumber.value,
-      date: convertDate(date),
-      id: Date.now(),
-    };
-    this.updateName("");
-    this.updateEmail("");
-    this.updatePhoneNumber("");
-    this.$store.commit('addItem', data);
-    // this.$message({
-    //   message: "전화번호가 등록되었습니다.",
-    //   type: "success",
-    // });
+    if (this.$props.updateItem) {
+      let data = {
+        name: this.name.value,
+        email: this.email.value,
+        phoneNumber: this.phoneNumber.value,
+        date: this.$props.updateItem.date,
+        id: this.$props.updateItem.id,
+      }
+      this.updateName("");
+      this.updateEmail("");
+      this.updatePhoneNumber("");
+      return data;
+    }
+
+    // addItem 인 경우
+    else {
+      let date = new Date();
+      let data = {
+        name: this.name.value,
+        email: this.email.value,
+        phoneNumber: this.phoneNumber.value,
+        date: convertDate(date),
+        id: Date.now(),
+      };
+
+      this.updateName("");
+      this.updateEmail("");
+      this.updatePhoneNumber("");
+      return data;
+    }
   }
 
-}
 
+    created() {
+      if (this.$props.updateItem) {
+        this.name.value = this.updateItem.name;
+        this.email.value = this.updateItem.email;
+        this.phoneNumber.value = this.updateItem.phoneNumber;
+      }
+    }
+
+
+
+}
 </script>
 
 <style lang="scss">

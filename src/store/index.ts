@@ -8,7 +8,7 @@ export interface InfoItem {
     email: string;
     phoneNumber: string;
     date: string;
-    id?: number;
+    id: number;
 }
 
 export default new Vuex.Store({
@@ -20,13 +20,14 @@ export default new Vuex.Store({
   mutations: {
     addItem (state, payload: InfoItem) {
       state.infoList.push(payload)
-      console.log(state.infoList);
+      console.log("addItem", state.infoList);
     },
-    updateItem (state, payload) {
+    updateItem (state, payload: InfoItem) {
       const foundIndex = state.infoList.findIndex((i) => i.id === payload.id);
       state.infoList[foundIndex] = payload;
+      console.log("updateItem", state.infoList);
     },
-    deleteItem (state, deleteItemId) {
+    deleteItem (state, deleteItemId: number) {
       state.infoList = state.infoList.filter(
           (item) => item.id !== deleteItemId
       )
