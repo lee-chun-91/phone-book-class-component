@@ -2,7 +2,7 @@
   <div class="SearchBar">
     <div class="input-area">
       <label for="검색"></label>
-      <input type="text" id="검색" placeHolder="검색할 전화번호를 입력해주세요" @input="searchInput" />
+      <input type="text" id="검색" placeHolder="검색할 전화번호를 입력해주세요" :value="searchWord" @input="searchInput" />
     </div>
     <div class="button-area">
       <button class="sortByNameButton" @click="sortByNameClick" >
@@ -14,20 +14,27 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Emit } from "vue-property-decorator";
+import { Vue, Component, Prop, Emit } from "vue-property-decorator";
 
 @Component
 export default class SearchBar extends Vue {
+  @Prop(String) readonly searchWord!: string
 
   @Emit()
   searchInput(event: InputEvent) {
-    console.log(event);
-    return event;
+    if(!event.target) {
+      return
+    }
+    const eventTarget = event.target as HTMLInputElement;
+    // console.log("event", event);
+    // console.log("eventTarget", eventTarget)
+    // console.log("eventTarget.value", eventTarget.value);
+    return eventTarget.value;
   }
 
   @Emit()
-  sortByNameClick(event: MouseEvent) {
-    return event;
+  sortByNameClick(event: PointerEvent) {
+    console.log("event", event)
   }
 
   @Emit()
