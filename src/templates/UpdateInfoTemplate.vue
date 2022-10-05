@@ -8,6 +8,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import FormWrapper from "@/components/form/FormWrapper.vue";
 import {InfoItem} from "@/store";
+import router from "@/router";
 
 @Component({
   components: {FormWrapper}
@@ -28,6 +29,7 @@ export default class UpdateInfoTemplate extends Vue {
   handleUpdateItem(data: InfoItem) {
     console.log("updateItem", data);
     this.$store.commit('updateItem', data);
+    router.push('/')
   }
 }
 </script>
