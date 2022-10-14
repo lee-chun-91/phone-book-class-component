@@ -82,7 +82,7 @@ export default class FormWrapper extends Vue {
         email: this.email.value,
         phoneNumber: this.phoneNumber.value,
         date: convertDate(date),
-        id: Date.now(),
+        // id: Date.now(),
       };
 
       this.updateName("");
