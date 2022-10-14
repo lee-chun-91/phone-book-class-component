@@ -71,4 +71,15 @@ export default class ModuleInfoList extends VuexModule {
             .catch(error => console.log(error));
     }
 
+    @Action
+    public async fetchDeleteAll() {
+        return await phoneApi.deleteAll()
+            .then((res) => {
+                this.deleteAll();
+            })
+            .catch(error => console.log(error));
+    }
+
+
+
 }

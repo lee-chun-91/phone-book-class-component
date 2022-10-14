@@ -38,7 +38,7 @@
                 ></router-link>
             </td>
             <td>
-              <div @click="phoneNumberDelete(info.id)">
+              <div @click="deleteItem(info.id)">
                 <el-button
                     type="primary"
                     size="small"
@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop, Emit } from "vue-property-decorator";
 import SearchBar from "@/components/infoList/SearchBar.vue";
 import {$infoListStore} from "@/store";
 @Component({
@@ -70,10 +70,12 @@ export default class InfoListTable extends Vue {
     return "";
   }
 
-  phoneNumberDelete(deleteItemId: string) {
-    $infoListStore.fetchDeleteItem(deleteItemId);
+  @Emit()
+  deleteItem(deleteItemId: string) {
     // this.infoList = this.$store.state.infoList;
-    this.$emit('deleteItem', deleteItemId);
+    console.log("delete Item")
+    console.log(deleteItemId);
+    return deleteItemId;
   }
 
   created() {
