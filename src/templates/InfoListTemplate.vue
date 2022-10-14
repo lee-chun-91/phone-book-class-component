@@ -1,7 +1,7 @@
 <template>
   <div class="InfoListTemplate">
     <SearchBar :search-word="searchWord" @search-input="searchItem" @sort-by-name-click="sortByName" @delete-all-click="deleteAllItem"></SearchBar>
-    <TableArea :info-list="infoList" @deleteitem="deleteItem"></TableArea>
+    <TableArea :info-list="infoList" @delete-item="deleteItem"></TableArea>
   </div>
 </template>
 
@@ -44,13 +44,15 @@ export default class InfoListTemplate extends Vue {
     })
   }
 
-  deleteItem() {
+  async deleteItem(deleteItemId: string) {
+    await $infoListStore.fetchDeleteItem(deleteItemId);
     this.infoList = $infoListStore.infoList;
   }
 
-  deleteAllItem() {
+  async deleteAllItem() {
     console.log("deleteAllItem");
-    // this.infoList = $infoListStore.infoList;
+    await $infoListStore.fetchDeleteAll();
+    this.infoList = $infoListStore.infoList;
   }
 
 

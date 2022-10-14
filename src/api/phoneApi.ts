@@ -9,37 +9,35 @@ const instance = axios.create({
 
 export const phoneApi = {
     addItem: async (phoneInfo: InfoItem) => {
-        const data = await instance.post("/AddItem", phoneInfo);
+        const data = await instance.post("/addItem", phoneInfo);
         return data
     },
 
     getInfoList: async () => {
-        const data = await instance.get("/GetInfoList");
+        const data = await instance.get("/getInfoList");
         return data;
     },
 
     getItem: async (id: number) => {
-        const data = await instance.get(`/GetItem/${id}`)
+        const data = await instance.get(`/getItem/${id}`)
         return data;
     },
 
     updateItem: async (updatedInfo: InfoItem) => {
         const id = updatedInfo.id;
-        const data = await instance.post(`/UpdateItem/${id}`, updatedInfo)
-
+        const data = await instance.post(`/updateItem/${id}`, updatedInfo)
         return data;
     },
 
     deleteItem: async (deleteItemId: string) => {
      const data = await instance.post( `/deleteItem/${deleteItemId}`, deleteItemId)
-
         return data;
     },
 
-    // deleteAll: async () => {
-    //     const data = await instance.post
-    //     return data;
-    // }
+    deleteAll: async () => {
+        const data = await instance.post("deleteAll")
+        return data;
+    }
 
 
 
