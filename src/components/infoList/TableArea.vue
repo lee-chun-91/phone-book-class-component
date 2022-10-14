@@ -56,6 +56,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
 import SearchBar from "@/components/infoList/SearchBar.vue";
+import {$infoListStore} from "@/store";
 @Component({
   components: {SearchBar}
 })
@@ -69,9 +70,14 @@ export default class InfoListTable extends Vue {
     return "";
   }
 
-  phoneNumberDelete(deleteItemId: number) {
-    this.$store.commit('deleteItem', deleteItemId);
-    this.infoList = this.$store.state.infoList;
+  phoneNumberDelete(deleteItemId: string) {
+    $infoListStore.fetchDeleteItem(deleteItemId);
+    // this.infoList = this.$store.state.infoList;
+    this.$emit('deleteItem', deleteItemId);
+  }
+
+  created() {
+    // console.log(this.$props.infoList);
   }
 }
 
